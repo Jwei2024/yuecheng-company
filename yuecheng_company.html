@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>湖北悦澄农业有限公司 - 专注蛋粉贸易</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+        }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 80px 40px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            letter-spacing: 4px;
+        }
+        .hero .subtitle {
+            font-size: 24px;
+            color: #ffd700;
+            margin-bottom: 30px;
+        }
+        .hero .desc {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        /* Sections */
+        section {
+            padding: 60px 40px;
+        }
+        section:nth-child(even) {
+            background: #fafafa;
+        }
+        h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1a1a2e;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #ffd700;
+            margin: 15px auto 0;
+        }
+        h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .about-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .about-card h3 {
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+        /* Products */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .product-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        .product-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        .product-card h3 {
+            margin-bottom: 15px;
+        }
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 30px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        th, td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            background: #1a1a2e;
+            color: #fff;
+            font-weight: 600;
+        }
+        tr:hover {
+            background: #f9f9f9;
+        }
+        .highlight {
+            color: #ffd700;
+            font-weight: bold;
+        }
+        /* Advantages */
+        .advantages-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .advantages-list li {
+            padding: 20px 30px;
+            margin-bottom: 15px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+        .advantages-list li span {
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        /* Contact */
+        .contact {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            text-align: center;
+        }
+        .contact h2 {
+            color: #fff;
+        }
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 18px;
+        }
+        .contact-info p {
+            margin-bottom: 15px;
+        }
+        .contact-info a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+        /* Footer */
+        footer {
+            background: #0f0f1a;
+            color: #888;
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+        }
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
+            border-radius: 12px;
+            color: #1a1a2e;
+        }
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .stat-label {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
+            color: #1a1a2e;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero -->
+        <div class="hero">
+            <h1>湖北悦澄农业有限公司</h1>
+            <p class="subtitle">专注蛋粉贸易 · 营养价值高</p>
+            <p class="desc">主营全蛋粉、蛋黄粉、蛋白粉等高品质蛋制品，坚持品质至上，为客户提供优质的蛋粉产品</p>
+        </div>
+
+        <!-- About -->
+        <section id="about">
+            <h2>关于我们</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>📋 公司概况</h3>
+                    <p>湖北悦澄农业有限公司成立于2023年，坐落于湖北省武汉市青山区，注册资本<strong>500万元</strong>。公司专注于蛋粉产品的贸易与销售，主营全蛋粉、蛋黄粉、蛋白粉三大系列产品，广泛应用于食品加工、烘焙、餐饮等行业。</p>
+                </div>
+                <div class="about-card">
+                    <h3>🎯 企业愿景</h3>
+                    <p>成为华中地区领先的蛋粉供应商，以优质产品和服务赢得客户信赖，推动食品原料供应链发展。</p>
+                </div>
+                <div class="about-card">
+                    <h3>💡 发展理念</h3>
+                    <p>坚持"品质至上、诚信经营、合作共赢"的理念，为客户创造价值，为社会贡献力量。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products -->
+        <section id="products">
+            <h2>产品中心</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-icon">🥚</div>
+                    <h3>全蛋粉</h3>
+                    <p>精选优质鲜鸡蛋制作，保留了鸡蛋的全部营养成分，香气浓郁，适合各类食品加工需求。</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🟡</div>
+                    <h3>蛋黄粉</h3>
+                    <p>精选蛋黄部分精制而成，富含优质蛋白质和卵磷脂，是烘焙和食品加工的优质原料。</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🟢</div>
+                    <h3>蛋白粉</h3>
+                    <p>高纯度蛋清粉，蛋白质含量高，低脂肪，是健身食品和高端餐饮的理想选择。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trade Data -->
+        <section id="trade">
+            <h2>贸易规模</h2>
+            
+            <h3>📊 月度交易数据</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>月份</th>
+                            <th>进项（采购）</th>
+                            <th>销项（销售）</th>
+                            <th>利润</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2025年10月</td>
+                            <td>347.5吨 / 3,475,000元</td>
+                            <td>348.5吨 / 3,485,000元</td>
+                            <td>10,000元</td>
+                        </tr>
+                        <tr>
+                            <td>2025年11月</td>
+                            <td>615吨 / 6,150,000元</td>
+                            <td>617.46吨 / 6,174,600元</td>
+                            <td>24,600元</td>
+                        </tr>
+                        <tr>
+                            <td>2025年12月</td>
+                            <td>1,176.8吨 / 11,506,280元</td>
+                            <td>1,177.185吨 / 11,544,585元</td>
+                            <td>38,305元</td>
+                        </tr>
+                        <tr>
+                            <td>2026年1月</td>
+                            <td>412.8吨 / 4,128,000元</td>
+                            <td>413.1吨 / 4,131,000元</td>
+                            <td>3,000元</td>
+                        </tr>
+                        <tr>
+                            <td>2026年2月</td>
+                            <td>1,446.57吨 / 14,466,370元</td>
+                            <td>1,451.885吨 / 14,519,855元</td>
+                            <td>53,485元</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="highlight-box">
+                📈 近几个月贸易额稳步增长，2026年2月单月销售额突破1400万元！
+            </div>
+
+            <h3>💰 年度贸易总额</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">21,131,280</div>
+                    <div class="stat-label">2025年总进项（元）</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">21,204,185</div>
+                    <div class="stat-label">2025年总销项（元）</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">72,905</div>
+                    <div class="stat-label">2025年总利润（元）</div>
+                </div>
+            </div>
+
+            <h3>🤝 稳定客户群体</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>客户名称</th>
+                            <th>合作类型</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>湖北惠宇商贸有限公司</td>
+                            <td>蛋粉采购</td>
+                        </tr>
+                        <tr>
+                            <td>广州合成</td>
+                            <td>蛋粉采购</td>
+                        </tr>
+                        <tr>
+                            <td>湖北予佳科技</td>
+                            <td>蛋粉采购</td>
+                        </tr>
+                        <tr>
+                            <td>武汉瑞通盛贸易有限公司</td>
+                            <td>蛋白粉供应</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>✨ 经营优势</h3>
+            <ul class="advantages-list">
+                <li><span>📋</span> 合同管理规范，每笔交易均有正式合同和发票台账</li>
+                <li><span>💰</span> 资金实力雄厚，注册资本500万元，银行账户正规备案</li>
+                <li><span>🔄</span> 供应链稳定，上下游渠道畅通</li>
+                <li><span>📈</span> 月均贸易量稳步增长，2026年月均销售额超900万元</li>
+            </ul>
+        </section>
+
+        <!-- Advantages -->
+        <section id="advantages">
+            <h2>核心优势</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>优势</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🌾 优质产品</td>
+                            <td>严选原料，品质保证</td>
+                        </tr>
+                        <tr>
+                            <td>🔬 营养丰富</td>
+                            <td>保留鸡蛋天然营养成分</td>
+                        </tr>
+                        <tr>
+                            <td>✅ 品质把控</td>
+                            <td>严格质量检测，确保每一批产品达标</td>
+                        </tr>
+                        <tr>
+                            <td>🚚 配送及时</td>
+                            <td>完善的物流体系，确保货物快速送达</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact" id="contact">
+            <h2>联系我们</h2>
+            <div class="contact-info">
+                <p>期待与您的合作</p>
+                <p>📍 <strong>地址：</strong>湖北省武汉市青山区白玉山街道白玉山街21号公路旁</p>
+                <p>📞 <strong>电话：</strong>18571755998</p>
+                <p>✉️ <strong>邮箱：</strong><a href="mailto:4815139@qq.com">4815139@qq.com</a></p>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2026 湖北悦澄农业有限公司 版权所有</p>
+        </footer>
+    </div>
+</body>
+</html>
