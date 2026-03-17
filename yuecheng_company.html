@@ -1,436 +1,209 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>湖北悦澄农业有限公司 - 专注蛋粉贸易</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f5f5f5;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: #fff;
-        }
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #fff;
-            padding: 80px 40px;
-            text-align: center;
-        }
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            letter-spacing: 4px;
-        }
-        .hero .subtitle {
-            font-size: 24px;
-            color: #ffd700;
-            margin-bottom: 30px;
-        }
-        .hero .desc {
-            font-size: 18px;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        /* Sections */
-        section {
-            padding: 60px 40px;
-        }
-        section:nth-child(even) {
-            background: #fafafa;
-        }
-        h2 {
-            font-size: 36px;
-            text-align: center;
-            margin-bottom: 40px;
-            color: #1a1a2e;
-            position: relative;
-        }
-        h2::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: #ffd700;
-            margin: 15px auto 0;
-        }
-        h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        /* About */
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
-        }
-        .about-card {
-            background: #fff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-        .about-card h3 {
-            color: #ffd700;
-            margin-bottom: 15px;
-        }
-        /* Products */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        .product-card {
-            background: #fff;
-            padding: 40px 30px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
-        }
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-        .product-icon {
-            font-size: 60px;
-            margin-bottom: 20px;
-        }
-        .product-card h3 {
-            margin-bottom: 15px;
-        }
-        /* Tables */
-        .table-wrapper {
-            overflow-x: auto;
-            margin: 30px 0;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        th, td {
-            padding: 16px 20px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-        th {
-            background: #1a1a2e;
-            color: #fff;
-            font-weight: 600;
-        }
-        tr:hover {
-            background: #f9f9f9;
-        }
-        .highlight {
-            color: #ffd700;
-            font-weight: bold;
-        }
-        /* Advantages */
-        .advantages-list {
-            list-style: none;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .advantages-list li {
-            padding: 20px 30px;
-            margin-bottom: 15px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-        }
-        .advantages-list li span {
-            font-size: 24px;
-            margin-right: 15px;
-        }
-        /* Contact */
-        .contact {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #fff;
-            text-align: center;
-        }
-        .contact h2 {
-            color: #fff;
-        }
-        .contact-info {
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 18px;
-        }
-        .contact-info p {
-            margin-bottom: 15px;
-        }
-        .contact-info a {
-            color: #ffd700;
-            text-decoration: none;
-        }
-        /* Footer */
-        footer {
-            background: #0f0f1a;
-            color: #888;
-            text-align: center;
-            padding: 30px;
-            font-size: 14px;
-        }
-        /* Stats */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-        .stat-item {
-            text-align: center;
-            padding: 30px;
-            background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
-            border-radius: 12px;
-            color: #1a1a2e;
-        }
-        .stat-number {
-            font-size: 36px;
-            font-weight: bold;
-        }
-        .stat-label {
-            font-size: 16px;
-            margin-top: 10px;
-        }
-        .highlight-box {
-            background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
-            color: #1a1a2e;
-            padding: 30px;
-            border-radius: 12px;
-            text-align: center;
-            font-size: 20px;
-            font-weight: bold;
-            margin: 30px 0;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>湖北悦澄农业有限公司 - 专业农产品供应链服务商</title>
+  <meta name="description" content="湖北悦澄农业有限公司专注全蛋粉、蛋白粉、蛋黄粉贸易，近半年每月数百吨规模，先进蛋粉生产工艺与现代化车间。"/>
+  <style>
+    :root {
+      --primary: #e67e22;
+      --primary-dark: #d35400;
+      --accent: #f39c12;
+      --text: #4a2c00;
+      --light: #fffaf0;
+      --bg-card: #fff5e6;
+    }
+    body { margin:0; font-family:"Microsoft YaHei",Arial,sans-serif; color:var(--text); background:var(--light); line-height:1.6; }
+    header { background:linear-gradient(to right,var(--primary),var(--primary-dark)); color:white; text-align:center; padding:120px 20px 80px; position:relative; overflow:hidden; }
+    header img { position:absolute; top:0; left:0; right:0; bottom:0; width:100%; height:100%; object-fit:cover; opacity:0.3; z-index:0; }
+    header .content { position:relative; z-index:1; }
+    header h1 { margin:0; font-size:3.5rem; text-shadow:2px 2px 8px rgba(0,0,0,0.4); }
+    header p { font-size:1.5rem; margin:20px 0 0; opacity:0.95; }
+    nav { background:white; box-shadow:0 4px 12px rgba(0,0,0,0.1); position:sticky; top:0; z-index:100; }
+    nav ul { margin:0; padding:0; list-style:none; display:flex; justify-content:center; }
+    nav li a { display:block; padding:20px 40px; color:var(--primary-dark); text-decoration:none; font-weight:bold; transition:all 0.3s; }
+    nav li a:hover { color:white; background:var(--primary); }
+    section { padding:80px 20px; max-width:1200px; margin:0 auto; }
+    .about, .products, .process, .strength { background:var(--bg-card); border-radius:16px; box-shadow:0 6px 24px rgba(230,126,34,0.15); padding:48px 40px; margin-bottom:60px; border:1px solid #ffe0b2; }
+    h2 { color:var(--primary-dark); text-align:center; font-size:2.6rem; margin-bottom:48px; position:relative; }
+    h2::after { content:""; width:100px; height:5px; background:var(--accent); position:absolute; bottom:-16px; left:50%; transform:translateX(-50%); border-radius:3px; }
+    .product-grid, .strength-grid, .workshop-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:32px; }
+    .card { background:white; padding:28px; border-radius:12px; text-align:center; border:1px solid #ffe0b2; transition:all 0.3s; box-shadow:0 4px 12px rgba(0,0,0,0.08); }
+    .card:hover { transform:translateY(-10px); box-shadow:0 12px 30px rgba(230,126,34,0.2); }
+    .card img { width:100%; height:280px; object-fit:cover; border-radius:8px; margin-bottom:16px; }
+    .card h3 { color:var(--primary-dark); margin-bottom:12px; font-size:1.3rem; }
+    .process-steps { max-width:900px; margin:0 auto 40px; font-size:1.2rem; }
+    .process-steps ol { padding-left:30px; }
+    .process-steps li { margin-bottom:16px; }
+    .flowchart img { width:100%; max-width:900px; height:auto; display:block; margin:0 auto 32px; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.1); border:1px solid #ffd699; }
+    .banks { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin:48px 0; }
+    .bank-logo { font-size:1.1rem; padding:12px 28px; background:#fff0d9; border-radius:50px; color:var(--primary-dark); font-weight:bold; border:1px solid #ffd699; }
+    footer { background:var(--primary-dark); color:white; text-align:center; padding:80px 20px 40px; }
+    .contact-info p { font-size:1.3rem; margin:16px 0; }
+    @media (max-width:768px) { header h1{font-size:2.6rem;} nav ul{flex-direction:column;} nav li a{padding:16px 24px;} }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Hero -->
-        <div class="hero">
-            <h1>湖北悦澄农业有限公司</h1>
-            <p class="subtitle">专注蛋粉贸易 · 营养价值高</p>
-            <p class="desc">主营全蛋粉、蛋黄粉、蛋白粉等高品质蛋制品，坚持品质至上，为客户提供优质的蛋粉产品</p>
-        </div>
 
-        <!-- About -->
-        <section id="about">
-            <h2>关于我们</h2>
-            <div class="about-grid">
-                <div class="about-card">
-                    <h3>📋 公司概况</h3>
-                    <p>湖北悦澄农业有限公司成立于2023年，坐落于湖北省武汉市青山区，注册资本<strong>500万元</strong>。公司专注于蛋粉产品的贸易与销售，主营全蛋粉、蛋黄粉、蛋白粉三大系列产品，广泛应用于食品加工、烘焙、餐饮等行业。</p>
-                </div>
-                <div class="about-card">
-                    <h3>🎯 企业愿景</h3>
-                    <p>成为华中地区领先的蛋粉供应商，以优质产品和服务赢得客户信赖，推动食品原料供应链发展。</p>
-                </div>
-                <div class="about-card">
-                    <h3>💡 发展理念</h3>
-                    <p>坚持"品质至上、诚信经营、合作共赢"的理念，为客户创造价值，为社会贡献力量。</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Products -->
-        <section id="products">
-            <h2>产品中心</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-icon">🥚</div>
-                    <h3>全蛋粉</h3>
-                    <p>精选优质鲜鸡蛋制作，保留了鸡蛋的全部营养成分，香气浓郁，适合各类食品加工需求。</p>
-                </div>
-                <div class="product-card">
-                    <div class="product-icon">🟡</div>
-                    <h3>蛋黄粉</h3>
-                    <p>精选蛋黄部分精制而成，富含优质蛋白质和卵磷脂，是烘焙和食品加工的优质原料。</p>
-                </div>
-                <div class="product-card">
-                    <div class="product-icon">🟢</div>
-                    <h3>蛋白粉</h3>
-                    <p>高纯度蛋清粉，蛋白质含量高，低脂肪，是健身食品和高端餐饮的理想选择。</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Trade Data -->
-        <section id="trade">
-            <h2>贸易规模</h2>
-            
-            <h3>📊 月度交易数据</h3>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>月份</th>
-                            <th>进项（采购）</th>
-                            <th>销项（销售）</th>
-                            <th>利润</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>2025年10月</td>
-                            <td>347.5吨 / 3,475,000元</td>
-                            <td>348.5吨 / 3,485,000元</td>
-                            <td>10,000元</td>
-                        </tr>
-                        <tr>
-                            <td>2025年11月</td>
-                            <td>615吨 / 6,150,000元</td>
-                            <td>617.46吨 / 6,174,600元</td>
-                            <td>24,600元</td>
-                        </tr>
-                        <tr>
-                            <td>2025年12月</td>
-                            <td>1,176.8吨 / 11,506,280元</td>
-                            <td>1,177.185吨 / 11,544,585元</td>
-                            <td>38,305元</td>
-                        </tr>
-                        <tr>
-                            <td>2026年1月</td>
-                            <td>412.8吨 / 4,128,000元</td>
-                            <td>413.1吨 / 4,131,000元</td>
-                            <td>3,000元</td>
-                        </tr>
-                        <tr>
-                            <td>2026年2月</td>
-                            <td>1,446.57吨 / 14,466,370元</td>
-                            <td>1,451.885吨 / 14,519,855元</td>
-                            <td>53,485元</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="highlight-box">
-                📈 近几个月贸易额稳步增长，2026年2月单月销售额突破1400万元！
-            </div>
-
-            <h3>💰 年度贸易总额</h3>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">21,131,280</div>
-                    <div class="stat-label">2025年总进项（元）</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">21,204,185</div>
-                    <div class="stat-label">2025年总销项（元）</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">72,905</div>
-                    <div class="stat-label">2025年总利润（元）</div>
-                </div>
-            </div>
-
-            <h3>🤝 稳定客户群体</h3>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>客户名称</th>
-                            <th>合作类型</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>湖北惠宇商贸有限公司</td>
-                            <td>蛋粉采购</td>
-                        </tr>
-                        <tr>
-                            <td>广州合成</td>
-                            <td>蛋粉采购</td>
-                        </tr>
-                        <tr>
-                            <td>湖北予佳科技</td>
-                            <td>蛋粉采购</td>
-                        </tr>
-                        <tr>
-                            <td>武汉瑞通盛贸易有限公司</td>
-                            <td>蛋白粉供应</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h3>✨ 经营优势</h3>
-            <ul class="advantages-list">
-                <li><span>📋</span> 合同管理规范，每笔交易均有正式合同和发票台账</li>
-                <li><span>💰</span> 资金实力雄厚，注册资本500万元，银行账户正规备案</li>
-                <li><span>🔄</span> 供应链稳定，上下游渠道畅通</li>
-                <li><span>📈</span> 月均贸易量稳步增长，2026年月均销售额超900万元</li>
-            </ul>
-        </section>
-
-        <!-- Advantages -->
-        <section id="advantages">
-            <h2>核心优势</h2>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>优势</th>
-                            <th>说明</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>🌾 优质产品</td>
-                            <td>严选原料，品质保证</td>
-                        </tr>
-                        <tr>
-                            <td>🔬 营养丰富</td>
-                            <td>保留鸡蛋天然营养成分</td>
-                        </tr>
-                        <tr>
-                            <td>✅ 品质把控</td>
-                            <td>严格质量检测，确保每一批产品达标</td>
-                        </tr>
-                        <tr>
-                            <td>🚚 配送及时</td>
-                            <td>完善的物流体系，确保货物快速送达</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- Contact -->
-        <section class="contact" id="contact">
-            <h2>联系我们</h2>
-            <div class="contact-info">
-                <p>期待与您的合作</p>
-                <p>📍 <strong>地址：</strong>湖北省武汉市青山区白玉山街道白玉山街21号公路旁</p>
-                <p>📞 <strong>电话：</strong>18571755998</p>
-                <p>✉️ <strong>邮箱：</strong><a href="mailto:4815139@qq.com">4815139@qq.com</a></p>
-            </div>
-        </section>
-
-        <footer>
-            <p>© 2026 湖北悦澄农业有限公司 版权所有</p>
-        </footer>
+  <header>
+    <img src="https://s.alicdn.com/@sc04/kf/H2662affdc5da418db933b7f1635d0940e/Customize-Capacity-Egg-Powder-Production-Line-Whole-Liquid-Egg-Production-Equipment-with-PLC-Control.jpg" alt="现代蛋粉生产工厂大场景">
+    <div class="content">
+      <h1>湖北悦澄农业有限公司</h1>
+      <p>成立于2023年 · 专注蛋粉系列深加工贸易 · 近半年每月数百吨规模 · 现代化生产车间 · 多银行授信</p>
     </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#about">关于我们</a></li>
+      <li><a href="#products">贸易产品</a></li>
+      <li><a href="#process">生产流程</a></li>
+      <li><a href="#strength">核心优势</a></li>
+      <li><a href="#contact">联系我们</a></li>
+    </ul>
+  </nav>
+
+  <section id="about" class="about">
+    <h2>关于悦澄</h2>
+    <p style="font-size:1.3rem; max-width:900px; margin:0 auto 32px; text-align:center;">
+      湖北悦澄农业有限公司成立于2023年8月15日，是一家专注于农产品深加工与贸易的现代化企业。<br>
+      公司拥有洁净、高效的生产车间，深耕蛋制品深加工贸易领域。
+    </p>
+    <p style="font-size:1.3rem; max-width:900px; margin:0 auto; text-align:center;">
+      凭借清晰的上下游网络、规范的经营模式和多家银行的长期授信，我们为合作伙伴提供安全、高效、可靠的解决方案。
+    </p>
+  </section>
+
+  <section id="products" style="background: linear-gradient(to bottom, #fffaf0, #ffe8cc);">
+    <h2>贸易产品与规模</h2>
+    <p style="font-size:1.3rem; text-align:center; max-width:900px; margin:0 auto 48px;">
+      近半年核心贸易产品为<strong>全蛋粉、蛋白粉、蛋黄粉</strong>，品质稳定、应用广泛。<br>
+      <strong>每月贸易量数百吨级</strong>，供应链高效，业务持续稳健增长。
+    </p>
+    <div class="product-grid">
+      <div class="card">
+        <img src="https://m.media-amazon.com/images/I/612n6atKmIL.jpg" alt="全蛋粉产品特写">
+        <h3>全蛋粉</h3>
+        <p>优质鲜蛋全成分加工，营养均衡，适用于烘焙、食品生产。</p>
+      </div>
+      <div class="card">
+        <img src="https://m.media-amazon.com/images/I/61iHbEm8JGL.jpg" alt="蛋白粉产品特写">
+        <h3>蛋白粉</h3>
+        <p>高纯度蛋清蛋白，蛋白质含量高，适合营养补充与加工。</p>
+      </div>
+      <div class="card">
+        <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/4c6ff1a6-0697-4314-abad-0d0783740323.__CR0,0,1940,1200_PT0_SX970_V1___.png" alt="蛋黄粉产品特写">
+        <h3>蛋黄粉</h3>
+        <p>浓郁蛋黄金黄色泽，风味丰富，用于酱料、烘焙等领域。</p>
+      </div>
+      <div class="card">
+        <h3>贸易规模 & 上下游</h3>
+        <p><strong>近半年每月数百吨</strong><br>上游对接养殖基地及加工厂；下游覆盖食品、烘焙企业。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" style="background:#fffaf0;">
+    <h2>蛋粉生产流程</h2>
+    <p style="font-size:1.3rem; text-align:center; max-width:900px; margin:0 auto 32px;">
+      我们采用行业主流的<strong>喷雾干燥法</strong>生产全蛋粉、蛋白粉、蛋黄粉，整个过程在现代化洁净车间完成。<br>
+      严格遵守食品安全标准，从鲜蛋接收到成品包装全程自动化控制，确保产品质量稳定。
+    </p>
+
+    <div class="process-steps">
+      <ol>
+        <li><strong>鲜蛋接收与清洗</strong>：优质鲜蛋进厂后清洗、消毒、照蛋，确保原料无问题。</li>
+        <li><strong>打蛋与分离</strong>：自动化打蛋机破壳，分离蛋清/蛋黄（全蛋粉直接混合）。</li>
+        <li><strong>过滤与冷却</strong>：去除杂质，低温冷却储存，防止细菌生长。</li>
+        <li><strong>巴氏杀菌</strong>：低温杀菌保留营养，消灭潜在病原体。</li>
+        <li><strong>喷雾干燥</strong>：液态蛋液高压雾化，热风瞬间干燥成粉末（核心步骤）。</li>
+        <li><strong>冷却、筛分与包装</strong>：干燥后冷却、筛粉，真空/充氮包装防潮。</li>
+        <li><strong>成品检测与储存</strong>：严格检测水分、蛋白质、微生物，合格后入库。</li>
+      </ol>
+    </div>
+
+    <div class="flowchart">
+      <h3 style="text-align:center; margin-bottom:16px; color:var(--primary-dark);">生产工艺流程示意图</h3>
+      <img src="https://pureriser.com/wp-content/uploads/2025/05/%E8%9B%8B%E5%93%81%E5%8E%9F%E6%96%99%E8%A3%BD%E7%A8%8B%E7%A4%BA%E6%84%8F%E5%9C%96-1.png" alt="蛋粉生产工艺流程图">
+    </div>
+
+    <h3 style="text-align:center; margin:48px 0 24px; color:var(--primary-dark);">现代化蛋粉生产车间实景</h3>
+    <div class="workshop-grid">
+      <div class="card">
+        <img src="https://cdn.sanovogroup.com/media/media/xxjdccoj/spray-dryer_0007_92.jpg?rmode=crop&rxy=0.5,0.5&width=800&height=450&format=webp&quality=80" alt="喷雾干燥生产线车间">
+        <h3>喷雾干燥生产线车间</h3>
+        <p>大型不锈钢干燥塔与多条管道系统，配备热风循环和收集装置，实现蛋液瞬间干燥成粉。</p>
+      </div>
+      <div class="card">
+        <img src="https://www.eggmachinery.com/wp-content/uploads/2023/04/egg-breaking-machinery-1.webp" alt="打蛋分离自动化生产线">
+        <h3>打蛋分离自动化生产线</h3>
+        <p>圆形自动化破蛋分离机，多工位同时操作鲜蛋破壳与蛋液分离，洁净车间环境。</p>
+      </div>
+      <div class="card">
+        <img src="https://cdn.sanovogroup.com/media/media/fvdayiz2/_0001_process-solution-small-1.jpg?rmode=crop&rxy=0.5,0.5&width=800&height=450&quality=80" alt="不锈钢储罐与管道区">
+        <h3>巴氏杀菌与储罐区</h3>
+        <p>食品级不锈钢储罐群与连接管道系统，用于蛋液暂存、杀菌和输送，卫生标准高。</p>
+      </div>
+      <div class="card">
+        <img src="https://www.landpack.com/data/watermark/20250911/68c2855c2e243_.webp" alt="成品包装输送线">
+        <h3>成品包装输送线</h3>
+        <p>自动化灌装与输送带系统，多漏斗设计，实现蛋粉高效填充与密封包装。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="strength">
+    <h2>核心优势</h2>
+    <div class="strength-grid">
+      <div class="card">
+        <img src="https://mmbiz.qpic.cn/sz_mmbiz_jpg/JjgwZ0SeJhEq6bkEK7ZNgSUBD0LaPsdYukccGJ0M4QZlIGdawDWtM4TLPa8zZSXmFcNemaONAEmbxe4Ujo2a2g/640" alt="银行授信签约仪式">
+        <h3>强劲金融实力</h3>
+        <p>与多家银行代表握手签约，长期授信合作，信用记录优良，为大额贸易提供充足资金保障。</p>
+      </div>
+      <div class="card">
+        <img src="https://www.spotblue.com/app/uploads/2023/06/warehouse-female-worker-checking-up-stuff-in-a-war-2023-03-14-00-39-04-utc1.jpg" alt="仓库供应链检查场景">
+        <h3>完整供应链生态</h3>
+        <p>仓库专业人员检查货物，上下游网络稳定，采购、销售、仓储、物流一体化，确保交付及时与品质可靠。</p>
+      </div>
+      <div class="card">
+        <img src="https://sensiba.com/wp-content/uploads/2024/09/CON-Financial-Review_Web.png" alt="财务团队审阅报表">
+        <h3>合规透明经营</h3>
+        <p>专业财务团队在办公室审阅财务报表与合规文件，体系规范、征信良好，经营全程可追溯，赢得合作伙伴高度信赖。</p>
+      </div>
+      <div class="card">
+        <img src="https://eco.btbu.edu.cn/images/2025-07/20160407150728526727.jpg" alt="商务团队会议讨论">
+        <h3>专业高效团队</h3>
+        <p>团队成员围坐会议桌深入讨论，熟悉农业贸易与供应链金融，提供定制化、专业化服务。</p>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:60px;">
+      <h3 style="color:var(--primary-dark);">部分合作银行</h3>
+      <div class="banks">
+        <span class="bank-logo">广发银行</span>
+        <span class="bank-logo">浦发银行</span>
+        <span class="bank-logo">中国邮政储蓄银行</span>
+        <span class="bank-logo">农业银行</span>
+        <span class="bank-logo">工商银行</span>
+        <span class="bank-logo">恒丰银行</span>
+        <span class="bank-logo">浙商银行</span>
+        <span class="bank-logo">交通银行</span>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <h2 style="color:white; margin-bottom:32px;">联系我们</h2>
+    <div class="contact-info">
+      <p><strong>公司名称：</strong> 湖北悦澄农业有限公司</p>
+      <p><strong>法人代表电话：</strong> 131-6336-0663</p>
+      <p><strong>电子邮箱：</strong> 4815139@qq.com</p>
+      <p><strong>地址：</strong> 湖北省武汉市江汉区南国中心</p>
+      <p style="margin-top:40px; font-size:1.2rem;">欢迎合作，共创蛋制品贸易新机遇！</p>
+    </div>
+    <p style="margin-top:60px; opacity:0.9;">© 2023-2026 湖北悦澄农业有限公司 版权所有</p>
+  </footer>
+
 </body>
 </html>
