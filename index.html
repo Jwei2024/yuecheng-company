@@ -7,12 +7,12 @@
   <meta name="description" content="湖北悦澄农业有限公司专注全蛋粉、蛋白粉、蛋黄粉贸易，近半年每月数百吨规模，先进蛋粉生产工艺与现代化车间。"/>
   <style>
     :root {
-      --primary: #e67e22;
-      --primary-dark: #d35400;
-      --accent: #f39c12;
-      --text: #4a2c00;
-      --light: #fffaf0;
-      --bg-card: #fff5e6;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --accent: #3b82f6;
+      --text: #1e3a5f;
+      --light: #f0f7ff;
+      --bg-card: #e6f0ff;
     }
     body { margin:0; font-family:"Microsoft YaHei",Arial,sans-serif; color:var(--text); background:var(--light); line-height:1.6; }
     header { background:linear-gradient(to right,var(--primary),var(--primary-dark)); color:white; text-align:center; padding:120px 20px 80px; position:relative; overflow:hidden; }
@@ -25,20 +25,28 @@
     nav li a { display:block; padding:20px 40px; color:var(--primary-dark); text-decoration:none; font-weight:bold; transition:all 0.3s; }
     nav li a:hover { color:white; background:var(--primary); }
     section { padding:80px 20px; max-width:1200px; margin:0 auto; }
-    .about, .products, .process, .strength { background:var(--bg-card); border-radius:16px; box-shadow:0 6px 24px rgba(230,126,34,0.15); padding:48px 40px; margin-bottom:60px; border:1px solid #ffe0b2; }
+    .about, .products, .process, .strength { background:var(--bg-card); border-radius:16px; box-shadow:0 6px 24px rgba(37,99,235,0.15); padding:48px 40px; margin-bottom:60px; border:1px solid #bfdbfe; }
     h2 { color:var(--primary-dark); text-align:center; font-size:2.6rem; margin-bottom:48px; position:relative; }
     h2::after { content:""; width:100px; height:5px; background:var(--accent); position:absolute; bottom:-16px; left:50%; transform:translateX(-50%); border-radius:3px; }
-    .product-grid, .strength-grid, .workshop-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:32px; }
-    .card { background:white; padding:28px; border-radius:12px; text-align:center; border:1px solid #ffe0b2; transition:all 0.3s; box-shadow:0 4px 12px rgba(0,0,0,0.08); }
-    .card:hover { transform:translateY(-10px); box-shadow:0 12px 30px rgba(230,126,34,0.2); }
-    .card img { width:100%; height:280px; object-fit:cover; border-radius:8px; margin-bottom:16px; }
+    .product-grid, .strength-grid, .workshop-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:24px; }
+    .product-grid .card, .strength-grid .card, .workshop-grid .card { min-height:380px; display:flex; flex-direction:column; }
+    .product-grid .card img, .strength-grid .card img, .workshop-grid .card img { height:200px; object-fit:cover; }
+    .product-grid .card p, .strength-grid .card p, .workshop-grid .card p { flex-grow:1; }
+    @media (max-width:1200px) { .product-grid, .strength-grid, .workshop-grid { grid-template-columns:repeat(2, 1fr); } }
+    @media (max-width:768px) { .product-grid, .strength-grid, .workshop-grid { grid-template-columns:1fr; } }
+    .card { background:white; padding:28px; border-radius:12px; text-align:center; border:1px solid #bfdbfe; transition:all 0.3s; box-shadow:0 4px 12px rgba(0,0,0,0.08); }
+    .card:hover { transform:translateY(-10px); box-shadow:0 12px 30px rgba(37,99,235,0.2); }
+    .card img { width:100%; height:auto; border-radius:8px; margin-bottom:16px; }
     .card h3 { color:var(--primary-dark); margin-bottom:12px; font-size:1.3rem; }
     .process-steps { max-width:900px; margin:0 auto 40px; font-size:1.2rem; }
     .process-steps ol { padding-left:30px; }
     .process-steps li { margin-bottom:16px; }
-    .flowchart img { width:100%; max-width:900px; height:auto; display:block; margin:0 auto 32px; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.1); border:1px solid #ffd699; }
+    .flowchart img { width:100%; max-width:900px; height:auto; display:block; margin:0 auto 32px; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.1); border:1px solid #93c5fd; }
     .banks { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin:48px 0; }
-    .bank-logo { font-size:1.1rem; padding:12px 28px; background:#fff0d9; border-radius:50px; color:var(--primary-dark); font-weight:bold; border:1px solid #ffd699; }
+    .bank-logo { font-size:1.1rem; padding:12px 28px; background:#dbeafe; border-radius:50px; color:var(--primary-dark); font-weight:bold; border:1px solid #93c5fd; }
+    .modal { display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; }
+    .modal img { max-width:90%; max-height:90%; border-radius:8px; box-shadow:0 20px 60px rgba(0,0,0,0.5); }
+    .modal-close { position:absolute; top:20px; right:40px; color:white; font-size:40px; cursor:pointer; }
     footer { background:var(--primary-dark); color:white; text-align:center; padding:80px 20px 40px; }
     .contact-info p { font-size:1.3rem; margin:16px 0; }
     @media (max-width:768px) { header h1{font-size:2.6rem;} nav ul{flex-direction:column;} nav li a{padding:16px 24px;} }
@@ -47,7 +55,8 @@
 <body>
 
   <header>
-    <img src="https://s.alicdn.com/@sc04/kf/H2662affdc5da418db933b7f1635d0940e/Customize-Capacity-Egg-Powder-Production-Line-Whole-Liquid-Egg-Production-Equipment-with-PLC-Control.jpg" alt="现代蛋粉生产工厂大场景">
+    <img src="images/factory-bg.jpg" alt="现代化工厂" style="position:absolute; top:0; left:0; right:0; bottom:0; width:100%; height:100%; object-fit:cover; opacity:0.4; z-index:0;">
+    <div style="position:absolute; top:0; left:0; right:0; bottom:0; background:linear-gradient(135deg, rgba(30,64,175,0.75) 0%, rgba(59,130,246,0.7) 50%, rgba(29,78,216,0.75) 100%); z-index:0;"></div>
     <div class="content">
       <h1>湖北悦澄农业有限公司</h1>
       <p>成立于2023年 · 专注蛋粉系列深加工贸易 · 近半年每月数百吨规模 · 现代化生产车间 · 多银行授信</p>
@@ -59,6 +68,8 @@
       <li><a href="#about">关于我们</a></li>
       <li><a href="#products">贸易产品</a></li>
       <li><a href="#process">生产流程</a></li>
+      <li><a href="#partners">合作伙伴</a></li>
+      <li><a href="#certificates">资质证书</a></li>
       <li><a href="#strength">核心优势</a></li>
       <li><a href="#contact">联系我们</a></li>
     </ul>
@@ -66,45 +77,126 @@
 
   <section id="about" class="about">
     <h2>关于悦澄</h2>
-    <p style="font-size:1.3rem; max-width:900px; margin:0 auto 32px; text-align:center;">
-      湖北悦澄农业有限公司成立于2023年8月15日，是一家专注于农产品深加工与贸易的现代化企业。<br>
-      公司拥有洁净、高效的生产车间，深耕蛋制品深加工贸易领域。
+    <div class="about-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:24px; margin-bottom:40px;">
+      <div class="card" style="min-height:380px;">
+        <h3>🏢 公司基本信息</h3>
+        <p style="text-align:left; font-size:0.95rem;">
+          <strong>成立时间：</strong>2023年8月16日<br>
+          <strong>注册资本：</strong>500万元<br>
+          <strong>实收资本：</strong>50万元<br>
+          <strong>法定代表人：</strong>陈思思<br>
+          <strong>企业性质：</strong>私人绝对控股<br>
+          <strong>信用代码：</strong>91420107MACXCART07<br>
+          <strong>开户银行：</strong>交通银行武汉硚口支行
+        </p>
+      </div>
+      <div class="card" style="min-height:380px;">
+        <h3>📍 注册地址</h3>
+        <p style="text-align:left; font-size:0.95rem;">
+          湖北省武汉市青山区<br>
+          白玉山街道白玉山街<br>
+          21号公路旁188号<br>
+          二层010号
+        </p>
+        <h3 style="margin-top:20px;">📋 经营范围</h3>
+        <p style="text-align:left; font-size:0.9rem;">
+          农副产品销售、初级农产品收购、食用农产品批发零售等
+        </p>
+      </div>
+      <div class="card" style="min-height:380px;">
+        <h3>🎯 核心业务</h3>
+        <p style="text-align:left; font-size:0.95rem;">
+          <strong>主营产品：</strong><br>
+          • 全蛋粉<br>
+          • 蛋白粉<br>
+          • 蛋黄粉<br><br>
+          <strong>业务模式：</strong><br>
+          蛋制品深加工贸易，月贸易量数百吨级
+        </p>
+      </div>
+      <div class="card" style="min-height:380px;">
+        <h3>🏆 企业资质</h3>
+        <p style="text-align:left; font-size:0.95rem;">
+          <strong>软件著作权：</strong><br>
+          • 初级农产品收购处理软件<br>
+          • 农业技术信息咨询平台<br>
+          • 农产品生产销售管理系统<br>
+          • 农副产品购销数据管理系统<br><br>
+          <strong>银行授信：</strong>多家银行长期合作
+        </p>
+      </div>
+    </div>
+    <style>
+      @media (max-width:1200px) { .about-grid { grid-template-columns:repeat(2, 1fr) !important; } }
+      @media (max-width:768px) { .about-grid { grid-template-columns:1fr !important; } }
+    </style>
+    <p style="font-size:1.2rem; max-width:900px; margin:0 auto 24px; text-align:center;">
+      湖北悦澄农业有限公司是一家专注于<strong>蛋制品深加工与贸易</strong>的现代化企业，主营蛋黄粉、蛋白粉、全蛋粉等产品的加工及销售。
     </p>
-    <p style="font-size:1.3rem; max-width:900px; margin:0 auto; text-align:center;">
+    <p style="font-size:1.1rem; max-width:900px; margin:0 auto; text-align:center; color:#4b5563;">
       凭借清晰的上下游网络、规范的经营模式和多家银行的长期授信，我们为合作伙伴提供安全、高效、可靠的解决方案。
     </p>
   </section>
 
-  <section id="products" style="background: linear-gradient(to bottom, #fffaf0, #ffe8cc);">
+  <section id="products" style="background: linear-gradient(to bottom, #f0f7ff, #dbeafe);">
     <h2>贸易产品与规模</h2>
     <p style="font-size:1.3rem; text-align:center; max-width:900px; margin:0 auto 48px;">
-      近半年核心贸易产品为<strong>全蛋粉、蛋白粉、蛋黄粉</strong>，品质稳定、应用广泛。<br>
+      核心贸易产品为<strong>全蛋粉、蛋白粉、蛋黄粉</strong>，品质稳定、应用广泛。<br>
       <strong>每月贸易量数百吨级</strong>，供应链高效，业务持续稳健增长。
     </p>
     <div class="product-grid">
       <div class="card">
-        <img src="https://m.media-amazon.com/images/I/612n6atKmIL.jpg" alt="全蛋粉产品特写">
+        <img src="images/eggs-basket.jpg" alt="全蛋粉产品" loading="lazy">
         <h3>全蛋粉</h3>
         <p>优质鲜蛋全成分加工，营养均衡，适用于烘焙、食品生产。</p>
       </div>
       <div class="card">
-        <img src="https://m.media-amazon.com/images/I/61iHbEm8JGL.jpg" alt="蛋白粉产品特写">
+        <img src="images/protein-powder.jpg" alt="蛋白粉产品" loading="lazy">
         <h3>蛋白粉</h3>
         <p>高纯度蛋清蛋白，蛋白质含量高，适合营养补充与加工。</p>
       </div>
       <div class="card">
-        <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/4c6ff1a6-0697-4314-abad-0d0783740323.__CR0,0,1940,1200_PT0_SX970_V1___.png" alt="蛋黄粉产品特写">
+        <img src="images/egg-powder.jpg" alt="蛋黄粉产品" loading="lazy">
         <h3>蛋黄粉</h3>
         <p>浓郁蛋黄金黄色泽，风味丰富，用于酱料、烘焙等领域。</p>
       </div>
       <div class="card">
-        <h3>贸易规模 & 上下游</h3>
-        <p><strong>近半年每月数百吨</strong><br>上游对接养殖基地及加工厂；下游覆盖食品、烘焙企业。</p>
+        <img src="images/trade-scale.jpg" alt="贸易规模" loading="lazy">
+        <h3>贸易规模</h3>
+        <p>近半年每月数百吨级贸易量，供应链高效，业务持续稳健增长。</p>
+      </div>
+    </div>
+
+    <div style="background:white; border-radius:16px; padding:40px; margin-top:48px; border:1px solid #bfdbfe;">
+      <h3 style="color:var(--primary-dark); text-align:center; margin-bottom:32px;">业务模式</h3>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:24px;">
+        <div style="text-align:center; padding:20px;">
+          <div style="font-size:2.5rem; margin-bottom:12px;">🔗</div>
+          <h4 style="color:var(--primary-dark); margin-bottom:8px;">订单匹配模式</h4>
+          <p style="font-size:0.95rem; color:#4b5563;">预先匹配上下游客户需求，以相同标的分别与供应商、客户签订购销合同</p>
+        </div>
+        <div style="text-align:center; padding:20px;">
+          <div style="font-size:2.5rem; margin-bottom:12px;">💰</div>
+          <h4 style="color:var(--primary-dark); margin-bottom:8px;">差价盈利模式</h4>
+          <p style="font-size:0.95rem; color:#4b5563;">按采购价格预留合理差价确定销售价格，最终价格由买卖双方协商确定</p>
+        </div>
+        <div style="text-align:center; padding:20px;">
+          <div style="font-size:2.5rem; margin-bottom:12px;">🚚</div>
+          <h4 style="color:var(--primary-dark); margin-bottom:8px;">直发配送模式</h4>
+          <p style="font-size:0.95rem; color:#4b5563;">供应商根据订单直接将货物运输到客户指定地点，高效便捷</p>
+        </div>
+      </div>
+      <div style="margin-top:32px; padding:20px; background:#f0f7ff; border-radius:12px;">
+        <h4 style="color:var(--primary-dark); margin-bottom:12px;">结算方式</h4>
+        <p style="font-size:1rem; color:#374151;">
+          与上游签订年度采购合同，采用<strong>先款后货</strong>方式，款到后<strong>30天内</strong>根据具体订单要求交货。
+          通过电话、微信、邮件等方式确认产品标准及数量，供应商按计划配备货物。
+        </p>
       </div>
     </div>
   </section>
 
-  <section id="process" style="background:#fffaf0;">
+  <section id="process" style="background:#f0f7ff;">
     <h2>蛋粉生产流程</h2>
     <p style="font-size:1.3rem; text-align:center; max-width:900px; margin:0 auto 32px;">
       我们采用行业主流的<strong>喷雾干燥法</strong>生产全蛋粉、蛋白粉、蛋黄粉，整个过程在现代化洁净车间完成。<br>
@@ -125,30 +217,138 @@
 
     <div class="flowchart">
       <h3 style="text-align:center; margin-bottom:16px; color:var(--primary-dark);">生产工艺流程示意图</h3>
-      <img src="https://pureriser.com/wp-content/uploads/2025/05/%E8%9B%8B%E5%93%81%E5%8E%9F%E6%96%99%E8%A3%BD%E7%A8%8B%E7%A4%BA%E6%84%8F%E5%9C%96-1.png" alt="蛋粉生产工艺流程图">
+      <div style="background:white; border-radius:12px; padding:40px; border:1px solid #bfdbfe; text-align:center;">
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:16px; font-size:1rem;">
+          <div style="background:var(--primary); color:white; padding:16px 24px; border-radius:8px; font-weight:bold;">鲜蛋接收</div>
+          <span style="font-size:1.5rem; color:var(--primary);">→</span>
+          <div style="background:var(--primary); color:white; padding:16px 24px; border-radius:8px; font-weight:bold;">清洗消毒</div>
+          <span style="font-size:1.5rem; color:var(--primary);">→</span>
+          <div style="background:var(--primary); color:white; padding:16px 24px; border-radius:8px; font-weight:bold;">打蛋分离</div>
+          <span style="font-size:1.5rem; color:var(--primary);">→</span>
+          <div style="background:var(--primary); color:white; padding:16px 24px; border-radius:8px; font-weight:bold;">过滤冷却</div>
+          <span style="font-size:1.5rem; color:var(--primary);">→</span>
+          <div style="background:var(--primary); color:white; padding:16px 24px; border-radius:8px; font-weight:bold;">巴氏杀菌</div>
+          <span style="font-size:1.5rem; color:var(--primary);">→</span>
+          <div style="background:var(--primary-dark); color:white; padding:16px 24px; border-radius:8px; font-weight:bold;">喷雾干燥</div>
+          <span style="font-size:1.5rem; color:var(--primary);">→</span>
+          <div style="background:var(--primary); color:white; padding:16px 24px; border-radius:8px; font-weight:bold;">冷却筛分</div>
+          <span style="font-size:1.5rem; color:var(--primary);">→</span>
+          <div style="background:var(--accent); color:white; padding:16px 24px; border-radius:8px; font-weight:bold;">成品包装</div>
+        </div>
+      </div>
     </div>
 
     <h3 style="text-align:center; margin:48px 0 24px; color:var(--primary-dark);">现代化蛋粉生产车间实景</h3>
     <div class="workshop-grid">
       <div class="card">
-        <img src="https://cdn.sanovogroup.com/media/media/xxjdccoj/spray-dryer_0007_92.jpg?rmode=crop&rxy=0.5,0.5&width=800&height=450&format=webp&quality=80" alt="喷雾干燥生产线车间">
+        <img src="images/spray-dryer.jpg" alt="喷雾干燥生产线车间" loading="lazy">
         <h3>喷雾干燥生产线车间</h3>
         <p>大型不锈钢干燥塔与多条管道系统，配备热风循环和收集装置，实现蛋液瞬间干燥成粉。</p>
       </div>
       <div class="card">
-        <img src="https://www.eggmachinery.com/wp-content/uploads/2023/04/egg-breaking-machinery-1.webp" alt="打蛋分离自动化生产线">
+        <img src="images/egg-breaking.webp" alt="打蛋分离自动化生产线" loading="lazy">
         <h3>打蛋分离自动化生产线</h3>
         <p>圆形自动化破蛋分离机，多工位同时操作鲜蛋破壳与蛋液分离，洁净车间环境。</p>
       </div>
       <div class="card">
-        <img src="https://cdn.sanovogroup.com/media/media/fvdayiz2/_0001_process-solution-small-1.jpg?rmode=crop&rxy=0.5,0.5&width=800&height=450&quality=80" alt="不锈钢储罐与管道区">
+        <img src="images/storage-tanks.jpg" alt="不锈钢储罐与管道区" loading="lazy">
         <h3>巴氏杀菌与储罐区</h3>
         <p>食品级不锈钢储罐群与连接管道系统，用于蛋液暂存、杀菌和输送，卫生标准高。</p>
       </div>
       <div class="card">
-        <img src="https://www.landpack.com/data/watermark/20250911/68c2855c2e243_.webp" alt="成品包装输送线">
+        <img src="images/packaging.webp" alt="成品包装输送线" loading="lazy">
         <h3>成品包装输送线</h3>
         <p>自动化灌装与输送带系统，多漏斗设计，实现蛋粉高效填充与密封包装。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="partners" style="background:#f0f7ff;">
+    <h2>合作伙伴</h2>
+    <div class="partners-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:24px; max-width:1200px; margin:0 auto;">
+      <div class="card" style="min-height:380px; text-align:left;">
+        <h3 style="color:var(--primary-dark); text-align:center; margin-bottom:20px;">📦 供应商一</h3>
+        <p style="font-size:0.95rem;">
+          <strong>公司名称：</strong><br>
+          广州合成农产品供应链有限公司<br><br>
+          <strong>采购品种：</strong><br>
+          蛋黄粉、蛋白粉、全蛋粉<br><br>
+          <strong>合作模式：</strong><br>
+          长期战略合作，年度采购合同
+        </p>
+      </div>
+      <div class="card" style="min-height:380px; text-align:left;">
+        <h3 style="color:var(--primary-dark); text-align:center; margin-bottom:20px;">📦 供应商二</h3>
+        <p style="font-size:0.95rem;">
+          <strong>公司名称：</strong><br>
+          湖北惠宇商贸有限公司<br><br>
+          <strong>采购品种：</strong><br>
+          蛋黄粉、蛋白粉、全蛋粉<br><br>
+          <strong>合作模式：</strong><br>
+          本地优质供应商，快速响应
+        </p>
+      </div>
+      <div class="card" style="min-height:380px; text-align:left;">
+        <h3 style="color:var(--primary-dark); text-align:center; margin-bottom:20px;">🤝 主要客户</h3>
+        <p style="font-size:0.95rem;">
+          <strong>公司名称：</strong><br>
+          湖北予佳科技有限公司<br><br>
+          <strong>销售品种：</strong><br>
+          蛋黄粉、蛋白粉、全蛋粉<br><br>
+          <strong>客户类型：</strong><br>
+          食品加工企业，长期合作
+        </p>
+      </div>
+      <div class="card" style="min-height:380px; text-align:left;">
+        <h3 style="color:var(--primary-dark); text-align:center; margin-bottom:20px;">🏦 合作银行</h3>
+        <p style="font-size:0.95rem;">
+          <strong>授信银行：</strong><br>
+          • 广发银行<br>
+          • 浦发银行<br>
+          • 邮储银行<br>
+          • 农业银行<br>
+          • 工商银行<br>
+          • 恒丰银行<br>
+          • 浙商银行<br>
+          • 交通银行
+        </p>
+      </div>
+    </div>
+    <style>
+      @media (max-width:1200px) { .partners-grid { grid-template-columns:repeat(2, 1fr) !important; } }
+      @media (max-width:768px) { .partners-grid { grid-template-columns:1fr !important; } }
+    </style>
+  </section>
+
+  <section id="certificates" style="background: linear-gradient(to bottom, #f0f7ff, #dbeafe);">
+    <h2>资质证书</h2>
+    <p style="font-size:1.2rem; text-align:center; max-width:800px; margin:0 auto 48px; color:#4b5563;">
+      公司拥有多项软件著作权，在农产品信息化管理领域具备专业技术实力
+    </p>
+    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:32px; max-width:1200px; margin:0 auto;">
+    <style>
+      @media (max-width:1200px) { #certificates > div { grid-template-columns:repeat(2, 1fr) !important; } }
+      @media (max-width:768px) { #certificates > div { grid-template-columns:1fr !important; } }
+    </style>
+      <div class="card" style="padding:20px;">
+        <img src="images/certificate-1.jpg" alt="初级农产品收购处理软件著作权" style="width:100%; height:auto; border-radius:8px; border:1px solid #e5e7eb; cursor:pointer;" onclick="openModal(this.src)">
+        <h3 style="font-size:1.1rem; margin-top:16px;">初级农产品收购处理软件 V1.0</h3>
+        <p style="font-size:0.9rem; color:#6b7280;">计算机软件著作权登记证书</p>
+      </div>
+      <div class="card" style="padding:20px;">
+        <img src="images/certificate-2.jpg" alt="农业技术信息咨询平台著作权" style="width:100%; height:auto; border-radius:8px; border:1px solid #e5e7eb; cursor:pointer;" onclick="openModal(this.src)">
+        <h3 style="font-size:1.1rem; margin-top:16px;">农业技术信息咨询平台 V1.0</h3>
+        <p style="font-size:0.9rem; color:#6b7280;">计算机软件著作权登记证书</p>
+      </div>
+      <div class="card" style="padding:20px;">
+        <img src="images/certificate-3.jpg" alt="农产品生产销售管理系统著作权" style="width:100%; height:auto; border-radius:8px; border:1px solid #e5e7eb; cursor:pointer;" onclick="openModal(this.src)">
+        <h3 style="font-size:1.1rem; margin-top:16px;">农产品生产销售管理系统 V1.0</h3>
+        <p style="font-size:0.9rem; color:#6b7280;">计算机软件著作权登记证书</p>
+      </div>
+      <div class="card" style="padding:20px;">
+        <img src="images/certificate-4.jpg" alt="农副产品购销数据管理系统著作权" style="width:100%; height:auto; border-radius:8px; border:1px solid #e5e7eb; cursor:pointer;" onclick="openModal(this.src)">
+        <h3 style="font-size:1.1rem; margin-top:16px;">农副产品购销数据管理系统 V1.0</h3>
+        <p style="font-size:0.9rem; color:#6b7280;">计算机软件著作权登记证书</p>
       </div>
     </div>
   </section>
@@ -157,24 +357,24 @@
     <h2>核心优势</h2>
     <div class="strength-grid">
       <div class="card">
-        <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="商务签约握手合作">
+        <img src="images/handshake.jpg" alt="商务签约握手合作" loading="lazy">
         <h3>强劲金融实力</h3>
-        <p>与多家银行代表握手签约，长期授信合作，信用记录优良，为大额贸易提供充足资金保障。</p>
+        <p>与多家银行建立长期授信合作关系，信用记录优良，为大额贸易提供充足资金保障。</p>
       </div>
       <div class="card">
-        <img src="https://www.spotblue.com/app/uploads/2023/06/warehouse-female-worker-checking-up-stuff-in-a-war-2023-03-14-00-39-04-utc1.jpg" alt="仓库供应链检查场景">
+        <img src="images/warehouse.jpg" alt="完整供应链生态" loading="lazy">
         <h3>完整供应链生态</h3>
-        <p>仓库专业人员检查货物，上下游网络稳定，采购、销售、仓储、物流一体化，确保交付及时与品质可靠。</p>
+        <p>上下游网络稳定，采购、销售、仓储、物流一体化，确保交付及时与品质可靠。</p>
       </div>
       <div class="card">
-        <img src="https://sensiba.com/wp-content/uploads/2024/09/CON-Financial-Review_Web.png" alt="财务团队审阅报表">
+        <img src="images/finance.jpg" alt="合规透明经营" loading="lazy">
         <h3>合规透明经营</h3>
-        <p>专业财务团队在办公室审阅财务报表与合规文件，体系规范、征信良好，经营全程可追溯，赢得合作伙伴高度信赖。</p>
+        <p>体系规范、征信良好，经营全程可追溯，赢得合作伙伴高度信赖。</p>
       </div>
       <div class="card">
-        <img src="https://eco.btbu.edu.cn/images/2025-07/20160407150728526727.jpg" alt="商务团队会议讨论">
+        <img src="images/team.jpg" alt="专业高效团队" loading="lazy">
         <h3>专业高效团队</h3>
-        <p>团队成员围坐会议桌深入讨论，熟悉农业贸易与供应链金融，提供定制化、专业化服务。</p>
+        <p>实控人陈思思在农产品贸易领域深耕多年，团队熟悉农业贸易与供应链金融。</p>
       </div>
     </div>
 
@@ -183,7 +383,7 @@
       <div class="banks">
         <span class="bank-logo">广发银行</span>
         <span class="bank-logo">浦发银行</span>
-        <span class="bank-logo">中国邮政储蓄银行</span>
+        <span class="bank-logo">邮储银行</span>
         <span class="bank-logo">农业银行</span>
         <span class="bank-logo">工商银行</span>
         <span class="bank-logo">恒丰银行</span>
@@ -197,13 +397,35 @@
     <h2 style="color:white; margin-bottom:32px;">联系我们</h2>
     <div class="contact-info">
       <p><strong>公司名称：</strong> 湖北悦澄农业有限公司</p>
-      <p><strong>法人代表电话：</strong> 131-6336-0663</p>
+      <p><strong>法人代表：</strong> 陈思思</p>
+      <p><strong>联系电话：</strong> 131-6336-0663</p>
       <p><strong>电子邮箱：</strong> 4815139@qq.com</p>
-      <p><strong>地址：</strong> 湖北省武汉市江汉区南国中心</p>
+      <p><strong>注册地址：</strong> 湖北省武汉市青山区白玉山街道白玉山街21号公路旁188号二层010号</p>
+      <p><strong>开户银行：</strong> 交通银行股份有限公司武汉硚口支行</p>
       <p style="margin-top:40px; font-size:1.2rem;">欢迎合作，共创蛋制品贸易新机遇！</p>
     </div>
-    <p style="margin-top:60px; opacity:0.9;">© 2023-2026 湖北悦澄农业有限公司 版权所有</p>
+    <p style="margin-top:60px; opacity:0.9;">© 2023-2026 湖北悦澄农业有限公司 版权所有 | 统一社会信用代码：91420107MACXCART07</p>
   </footer>
+
+  <div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="modal-close">&times;</span>
+    <img id="modalImg" src="" alt="证书大图">
+  </div>
+
+  <script>
+    function openModal(src) {
+      document.getElementById('modalImg').src = src;
+      document.getElementById('imageModal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.getElementById('imageModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
 
 </body>
 </html>
